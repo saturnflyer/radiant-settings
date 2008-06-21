@@ -3,8 +3,9 @@ Radiant Settings Extension
 
 A simple configuration editor for Radiant.  It adds a simple "Settings" tab that allows manage the configuration settings.
 
-After installation be sure to migrate!
+After installation be sure to update your instance of radiant!
 
+    rake radiant:extensions:settings:update
     rake radiant:extensions:settings:migrate
 
 Extension Developers
