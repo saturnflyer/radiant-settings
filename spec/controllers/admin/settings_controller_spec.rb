@@ -16,8 +16,21 @@ describe Admin::SettingsController do
   end
   
   describe 'GET /admin/settings' do
+    before do
+      @tree = {
+        'admin' => {
+          'title' => @title
+        },
+        'defaults' => {
+          'page' => {
+            'parts' => @parts
+          }
+        }
+      }
+    end
+    
     it "should fetch all settings" do
-      Radiant::Config.should_receive(:find).with(:all, :order => 'key' ).and_return([@parts, @title])
+      Radiant::Config.should_receive(:find_all_as_tree).and_return(@tree)
       get 'index'
       assigns[:settings].should_not be_nil
       response.should be_success

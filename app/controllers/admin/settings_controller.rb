@@ -1,7 +1,7 @@
 class Admin::SettingsController < ApplicationController
   
   def index
-    @settings = Radiant::Config.find(:all, :order => 'key')
+    @settings = Radiant::Config.find_all_as_tree
   end
   
   def edit

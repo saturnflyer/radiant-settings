@@ -1,3 +1,8 @@
+%style
+  table.index span.label { color: #666; font-size: 1.2em }
+  table.index div.nest-padding { width: 35px; height: 10px; float: left }
+  table.index tr.spacer td { background: #EAEAEA; height: 3px; padding: 0 !important }
+
 %h1 Radiant Settings
 
 %table.index
@@ -5,8 +10,5 @@
     %th.key Setting Name
     %th.value Value
   
-  - @settings.each do |setting|
-    %tr.node
-      %td.layout
-        %span.title= link_to setting.key, edit_admin_setting_path(setting)
-      %td= setting.value
+  - @settings.each do |key, node|
+    = render_node key, node, :reset_depth => true

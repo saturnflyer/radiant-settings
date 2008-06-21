@@ -13,6 +13,7 @@ class SettingsExtension < Radiant::Extension
   end
   
   def activate
+    Radiant::Config.extend ConfigFindAllAsTree
     admin.tabs.add "Settings", "/admin/settings", :after => "Layouts" #, :visibility => [:developer]
   end
   

@@ -1,0 +1,28 @@
+%tr.node
+  %td.layout
+    - @depth.times do
+      .nest-padding
+    
+    - if setting
+      = image_tag 'admin/setting.png', :size => '16x16'
+      %span.title= link_to key.humanize, edit_admin_setting_path(setting), :title => setting.key
+    
+    - else
+      %span.title.label= key.humanize
+  
+  
+  %td
+    - if setting
+      = setting.value
+
+- if hash
+  - @depth += 1
+  
+  - hash.each do |key, value|
+    = render_node key, value
+  
+  - @depth -= 1
+  
+  - if @depth == 0
+    %tr.spacer
+      %td{ :colspan => 2 }

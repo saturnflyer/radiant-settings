@@ -12,7 +12,16 @@ describe "/admin/settings/index" do
     @title.stub!(:value).and_return('Radiant CMS')
     @title.stub!(:description).and_return('bar')
     
-    assigns[:settings] = [@parts, @title]
+    assigns[:settings] = {
+      'admin' => {
+        'title' => @title
+      },
+      'defaults' => {
+        'page' => {
+          'parts' => @parts
+        }
+      }
+    }
     
     render 'admin/settings/index'
   end
@@ -22,7 +31,9 @@ describe "/admin/settings/index" do
   end
   
   it "should have a table listing all settings" do
-    response.should have_tag('td', 'defaults.page.parts')
+    response.should have_tag('td', 'Defaults')
+    response.should have_tag('td', 'Page')
+    response.should have_tag('td', 'Parts')
     response.should have_tag('td', 'body, extended')
   end
 end
