@@ -1,0 +1,12 @@
+%h1 Radiant Settings
+
+%table.index
+  %tr
+    %th.key Setting Name
+    %th.value Value
+  
+  - @settings.each do |setting|
+    %tr.node
+      %td.layout
+        %span.title= link_to setting.key, edit_admin_setting_path(setting)
+      %td= setting.value

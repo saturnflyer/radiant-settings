@@ -1,0 +1,25 @@
+%style
+  h2.setting-name { color: #C00; font-size: 200%; font-family: Georgia,Palatino,"Times New Roman",Times,serif; font-weight: normal; margin: 25px 0 0 }
+  div.description { margin: 5px 20px; color: #444 }
+  div.description p { margin: 0 0 10px }
+
+%h1
+  Edit Radiant Setting
+
+  %h2.setting-name
+    = @setting.key
+  
+  .description
+    = textilize @setting.description
+
+- form_for :setting, :url => admin_setting_path(@setting), :html => { :method => :put } do |f|
+  .form-area
+    %p.title
+      %label
+        Setting Value
+        = f.text_field :value, :class => 'textbox'
+    
+    %br/
+    
+    %p.buttons
+      = submit_tag 'Save', :class => 'button'
