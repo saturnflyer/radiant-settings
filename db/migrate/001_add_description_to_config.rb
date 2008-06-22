@@ -32,6 +32,15 @@ Defines the publishing status of new pages.  This can any one of:
 * reviewed
 * hidden
 DESC
+        when 'defaults.page.filter'
+          <<-DESC
+Sets the text filter a new page has by default.  Valid options, in a vanilla Radiant install are:
+
+* _leave blank to set no default filter_
+* Markdown
+* SmartyPants
+* Textile
+DESC
       end
       
       c.update_attribute :description, description
