@@ -1,7 +1,18 @@
-%style
-  h2.setting-name { color: #C00; font-size: 200%; font-family: Georgia,Palatino,"Times New Roman",Times,serif; font-weight: normal; margin: 25px 0 0 }
-  div.description { margin: 5px 20px; color: #444 }
-  div.description p { margin: 0 0 10px }
+- content_for 'page_css' do
+  :sass
+    h2.setting-name
+      color: #C00
+      font-size: 200%
+      font-family: Georgia,Palatino,"Times New Roman",Times,serif
+      font-weight: normal
+      margin: 25px 0 0
+    
+    div.description
+      margin: 5px 20px
+      color: #444
+      
+      p
+        margin: 0 0 10px
 
 %h1
   Edit Radiant Setting

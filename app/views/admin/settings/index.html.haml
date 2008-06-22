@@ -1,7 +1,20 @@
-%style
-  table.index span.label { color: #666; font-size: 1.2em }
-  table.index div.nest-padding { width: 35px; height: 10px; float: left }
-  table.index tr.spacer td { background: #EAEAEA; height: 3px; padding: 0 !important }
+- content_for 'page_css' do
+  :sass
+    table.index
+      span.label
+        color: #666
+        font-size: 1.2em
+    
+      div.nest-padding
+        width: 35px
+        height: 10px
+        float: left
+    
+      tr.spacer
+        td
+          background: #EAEAEA
+          height: 3px
+          padding: 0 !important
 
 %h1 Radiant Settings
 
