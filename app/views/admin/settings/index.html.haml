@@ -1,6 +1,6 @@
 - content_for 'page_css' do
   :sass
-    table.index
+    table#settings_index
       span.label
         color: #666
         font-size: 1.2em
@@ -14,14 +14,25 @@
         td
           background: #EAEAEA
           height: 3px
-          padding: 0 !important
+          padding: 0
+    p.new
+      a
+        color: #000
+        border: 1px solid #ddf
+        padding: 6px
+        text-decoration: none
+        &:hover
+          background: #efefff
+    
 
 %h1 Radiant Settings
 
-%table.index
+%table#settings_index.index
   %tr
     %th.key Setting Name
     %th.value Value
   
   - @settings.each do |key, node|
     = render_node key, node, :reset_depth => true
+    
+%p.new= link_to "New Setting", new_admin_setting_url if admin?

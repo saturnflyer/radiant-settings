@@ -14,14 +14,11 @@
       p
         margin: 0 0 10px
 
-%h1
-  Edit Radiant Setting
+%h1 Edit Radiant Setting
 
-  %h2.setting-name
-    = @setting.key
-  
-  .description
-    = textilize @setting.description
+%h2.setting-name= @setting.key
+
+.description= textilize @setting.description
 
 - form_for :setting, :url => admin_setting_path(@setting), :html => { :method => :put } do |f|
   .form-area
@@ -32,5 +29,9 @@
     
     %br/
     
-    %p.buttons
-      = submit_tag 'Save', :class => 'button'
+    %p.buttons= submit_tag 'Save', :class => 'button'
+      
+%p.buttons
+  - if admin?
+    This system relies on some of these settings to work properly. Deleting settings may cause unexpected errors. 
+    = link_to "I understand. Delete this setting entirely.", admin_setting_path(@setting), :method => :delete if admin?

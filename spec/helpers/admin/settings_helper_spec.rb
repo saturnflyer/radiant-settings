@@ -2,10 +2,11 @@ require File.dirname(__FILE__) + '/../../spec_helper'
 
 describe Admin::SettingsHelper do
   
-  #Delete this example and add some real ones or delete this file
-  it "should include the Admin::SettingsHelper" do
-    included_modules = self.metaclass.send :included_modules
-    included_modules.should include(Admin::SettingsHelper)
+  describe "render_node" do
+    it "should set the depth to 0 if it is not explicitly set"
+    
+    it "should render the 'setting' partial"
+    
   end
   
 end

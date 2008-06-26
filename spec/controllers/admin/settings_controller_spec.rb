@@ -37,6 +37,14 @@ describe Admin::SettingsController do
     end
   end
   
+  describe "GET /admin/settings/new" do
+    it "should show a new setting form" do
+      login_as :admin
+      get 'new'
+      response.should be_success
+    end
+  end
+  
   describe "GET /admin/settings/:id/edit" do
     it "should fetch the desired setting" do
       Radiant::Config.should_receive(:find).with('123').and_return(@parts)
@@ -52,6 +60,17 @@ describe Admin::SettingsController do
       @parts.should_receive(:update_attribute).with(:value, 'body, sidebar')
       
       put 'update', :id => '123', :setting => { :value => 'body, sidebar' }
+      response.should redirect_to(admin_settings_path)
+    end
+  end
+  
+  describe "DELETE /admin/setting/:id" do
+    it "should destroy the desired setting" do
+      login_as :admin
+      Radiant::Config.should_receive(:find).with('123').and_return(@parts)
+      @parts.should_receive(:destroy)
+      
+      delete 'destroy', :id => '123'
       response.should redirect_to(admin_settings_path)
     end
   end
