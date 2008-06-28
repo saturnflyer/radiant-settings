@@ -4,7 +4,7 @@ module ConfigFindAllAsTree
     returning(ActiveSupport::OrderedHash.new) do |result|
       
       # For all settings
-      find(:all, :order => 'key').each do |setting|
+      find(:all, :order => '`key`').each do |setting|
         
         # Split the setting path into an array
         path = setting.key.split('.')
