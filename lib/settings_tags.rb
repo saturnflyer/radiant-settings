@@ -15,7 +15,7 @@ module SettingsTags
   <pre><code><r:config:setting key="admin.title" /></code></pre>
   }
   tag "config:setting" do |tag|
-    raise TagError, "'key' attribute required" unless name = tag.attr['key']
+    raise TagError, "'key' attribute required" unless key = tag.attr['key']
     Radiant::Config["#{key}"]
   end
 
