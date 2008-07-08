@@ -3,8 +3,10 @@ module ConfigFindAllAsTree
   def find_all_as_tree
     returning(ActiveSupport::OrderedHash.new) do |result|
       
+      db_key = (ActiveRecord::Base.connection.adapter_name.downcase == 'mysql' ? '`key`' : 'key')
+      
       # For all settings
-      find(:all, :order => '`key`').each do |setting|
+      find(:all, :order => db_key).each do |setting|
         
         # Split the setting path into an array
         path = setting.key.split('.')
