@@ -11,8 +11,13 @@
       margin: 5px 20px
       color: #444
       
-      p
-        margin: 0 0 10px
+    p.title
+      margin: 10px 0 !important
+    
+    textarea.textarea
+      height: 150px !important
+      width: 100%
+      display: block
 
 %h1
   New Radiant Setting
@@ -30,7 +35,7 @@
     %p.title
       %label
         Setting Description
-        = f.text_field :description, :class => 'textbox'
+        = f.text_area :description, :class => 'textarea'
     
     %br/
     
