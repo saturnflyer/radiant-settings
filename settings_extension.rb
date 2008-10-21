@@ -2,7 +2,7 @@
 # require_dependency 'application'
 
 class SettingsExtension < Radiant::Extension
-  version "1.0"
+  version "1.1"
   description "Web based administration for Radiant default configuration settings."
   url "http://github.com/Squeegy/radiant-settings"
   
@@ -14,22 +14,21 @@ class SettingsExtension < Radiant::Extension
   
   def activate
     Radiant::Config.extend ConfigFindAllAsTree
-    admin.tabs.add "Settings", "/admin/settings", :after => "Layouts" , :visibility => [:admin]
+    Radiant::Config.send :include, ConfigProtection
+    
+    if Radiant::Config['roles.settings']
+      config_roles = Radiant::Config['roles.settings']
+      roles = []
+      roles << :developer if config_roles.include?('developer')
+      roles << :admin if config_roles.include?('admin')
+      if config_roles.include?('all')
+        roles = [:all]
+      end
+    end
+    admin.tabs.add "Settings", "/admin/settings", :after => "Layouts" , :visibility => roles
     
     Page.class_eval {
       include SettingsTags
-    }
-    Radiant::Config.class_eval {
-      def protected?
-        key.match(/[p|P]assword/)
-      end
-      def protected_value
-        if protected?
-          return "********"
-        else
-          return value
-        end
-      end
     }
   end
   
