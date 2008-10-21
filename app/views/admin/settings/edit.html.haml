@@ -25,7 +25,10 @@
     %p.title
       %label
         Setting Value
-        = f.text_field :value, :class => 'textbox'
+        - if @setting.protected?
+          = f.password_field :value, :class => 'textbox'
+        - else
+          = f.text_field :value, :class => 'textbox'
     
     %br/
     

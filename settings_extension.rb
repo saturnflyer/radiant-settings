@@ -4,7 +4,7 @@
 class SettingsExtension < Radiant::Extension
   version "1.0"
   description "Web based administration for Radiant default configuration settings."
-  url "http://githib.com/Squeegy/radiant-settings"
+  url "http://github.com/Squeegy/radiant-settings"
   
   define_routes do |map|
     map.namespace 'admin' do |admin|
@@ -18,6 +18,18 @@ class SettingsExtension < Radiant::Extension
     
     Page.class_eval {
       include SettingsTags
+    }
+    Radiant::Config.class_eval {
+      def protected?
+        key.match(/[p|P]assword/)
+      end
+      def protected_value
+        if protected?
+          return "********"
+        else
+          return value
+        end
+      end
     }
   end
   
