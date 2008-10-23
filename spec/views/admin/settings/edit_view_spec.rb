@@ -6,6 +6,8 @@ describe "/admin/settings/:id/edit" do
     @parts.stub!(:key).and_return('defaults.page.parts')
     @parts.stub!(:value).and_return('body, extended')
     @parts.stub!(:description).and_return('foo')
+    @parts.stub!(:protected?).and_return(false)
+    @parts.stub!(:protected_value).and_return('body, extended')
     
     assigns[:setting] = @parts
     

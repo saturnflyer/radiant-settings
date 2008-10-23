@@ -6,11 +6,15 @@ describe "/admin/settings/index" do
     @parts.stub!(:key).and_return('defaults.page.parts')
     @parts.stub!(:value).and_return('body, extended')
     @parts.stub!(:description).and_return('foo')
+    @parts.stub!(:protected?).and_return(false)
+    @parts.stub!(:protected_value).and_return('body, extended')
     
     @title = mock_model(Radiant::Config)
     @title.stub!(:key).and_return('admin.title')
     @title.stub!(:value).and_return('Radiant CMS')
     @title.stub!(:description).and_return('bar')
+    @title.stub!(:protected?).and_return(false)
+    @title.stub!(:protected_value).and_return('Radiant CMS')
     
     assigns[:settings] = {
       'admin' => {
