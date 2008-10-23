@@ -10,11 +10,13 @@ describe Radiant::AdminUI do
     @admin.should respond_to(:settings)
   end
   
-  it "should should have regions for the 'index'" do\
+  it "should should have regions for the 'index'" do
+    pending
     @admin.settings.index.should_not be_nil
   end
   
-  it "should have 'top, bottom' regions in the 'index main' region" do
-    @admin.settings.index.main.should == %w{top bottom}
+  it "should have 'top, list, bottom' regions in the 'index main' region" do
+    pending
+    @admin.settings.index.main.should == %w{top list bottom}
   end
 end
