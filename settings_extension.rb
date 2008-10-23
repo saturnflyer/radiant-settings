@@ -30,10 +30,23 @@ class SettingsExtension < Radiant::Extension
     Page.class_eval {
       include SettingsTags
     }
+    
+    Radiant::AdminUI.class_eval do
+      attr_accessor :settings
+    end
+    admin.settings = load_default_settings_regions
   end
   
   def deactivate
     admin.tabs.remove "Settings"
+  end
+  
+  def load_default_settings_regions
+    returning OpenStruct.new do |settings|
+      settings.index = Radiant::AdminUI::RegionSet.new do |index|
+        index.main.concat %w{top list bottom}
+      end
+    end
   end
   
 end
