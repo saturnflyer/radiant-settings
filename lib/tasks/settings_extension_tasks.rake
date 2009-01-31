@@ -23,6 +23,35 @@ namespace :radiant do
           cp file, RAILS_ROOT + path
         end
       end  
+
+      desc "Export settings"
+      task :export => :environment do
+        configs = Radiant::Config.find(:all).map do |config|
+          {:key => config.key, :value => config.value, :description => c.description}
+        end
+        File.open('settings.yaml', 'w') do |f|
+          YAML.dump(configs, f)
+        end
+      end
+
+      desc "Import/Merge settings"
+      task :import => :environment do
+        if File.exist?("settings.yaml") 
+          File.open("settings.yaml") do |f|
+            configs = YAML.load(f)
+            configs.each do |config|
+              if c = Radiant::Config.find_by_key(config[:key])
+                c.update_attributes(config)
+              else
+                Radiant::Config.create config
+              end
+            end
+          end
+        else
+          puts "A file called settings.yaml with your settings should exist"
+        end
+      end
+
     end
   end
 end
