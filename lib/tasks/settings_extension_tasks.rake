@@ -27,7 +27,7 @@ namespace :radiant do
       desc "Export settings"
       task :export => :environment do
         configs = Radiant::Config.find(:all).map do |config|
-          {:key => config.key, :value => config.value, :description => c.description}
+          {:key => config.key, :value => config.value, :description => config.description}
         end
         File.open('settings.yaml', 'w') do |f|
           YAML.dump(configs, f)
