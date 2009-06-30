@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe "Settings Tags" do
-  scenario :users_and_pages
+  dataset :users_and_pages
 
   describe "<r:config:setting>" do
     it "should render the Radiant::Config setting specified by the required 'key' attribute." do

@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../../spec_helper'
 
 describe Admin::SettingsController do
-  scenario :users
+  dataset :users
   
   before(:each) do
     @parts = mock_model(Radiant::Config)

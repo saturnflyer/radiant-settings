@@ -2,6 +2,8 @@ require File.dirname(__FILE__) + '/../../../spec_helper'
 
 describe "/admin/settings/index" do
   before do
+    assigns[:template_name] = 'index'
+    
     @parts = mock_model(Radiant::Config)
     @parts.stub!(:key).and_return('defaults.page.parts')
     @parts.stub!(:value).and_return('body, extended')

@@ -6,6 +6,7 @@ class Admin::SettingsController < ApplicationController
     :denied_message => "See your administrator if you'd like to create a new setting or delete an existing one."
   
   def index
+    @template_name = 'index'
     @settings = Radiant::Config.find_all_as_tree
   end
   
