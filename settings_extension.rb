@@ -25,7 +25,8 @@ class SettingsExtension < Radiant::Extension
         roles = [:all]
       end
     end
-    admin.tabs.add "Settings", "/admin/settings", :after => "Layouts" , :visibility => roles
+    admin.nav['settings'] << admin.nav_item(:config, 'Config', '/admin/settings')
+    # admin.tabs.add "Settings", "/admin/settings", :after => "Layouts" , :visibility => roles
     
     Page.class_eval {
       include SettingsTags
