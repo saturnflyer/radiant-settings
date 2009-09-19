@@ -16,7 +16,7 @@ module ConfigFindAllAsTree
         
         # iterate through all path levels
         path.each do |path_element|
-          if path_element == path.last
+          if path_element.equal?(path.last)
             # We are at the end of the path, so set the settting object as the value
             current_level[path_element] = setting
             
