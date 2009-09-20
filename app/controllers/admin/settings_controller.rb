@@ -11,6 +11,7 @@ class Admin::SettingsController < ApplicationController
   end
   
   def new
+    @setting = Radiant::Config.new
   end
   
   def create

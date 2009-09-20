@@ -1,3 +1,4 @@
+- body_classes << 'reversed'
 - content_for 'page_css' do
   :sass
     h2.setting-name
@@ -14,11 +15,7 @@
       p
         margin: 0 0 10px
 
-%h1 Edit Radiant Setting
-
-%h2.setting-name= @setting.key
-
-.description= textilize @setting.description
+%h1= @setting.key
 
 - form_for :setting, :url => admin_setting_path(@setting), :html => { :method => :put } do |f|
   .form-area
@@ -29,10 +26,13 @@
           = f.password_field :value, :class => 'textbox'
         - else
           = f.text_field :value, :class => 'textbox'
+    .description= textilize @setting.description
     
-    %br/
-    
-    %p.buttons= submit_tag 'Save', :class => 'button'
+    %p.buttons
+      = save_model_button(@setting)
+      = save_model_and_continue_editing_button(@setting)
+      or
+      = link_to 'Cancel', admin_settings_url
       
 %p.buttons
   - if admin?

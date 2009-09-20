@@ -45,7 +45,9 @@ class SettingsExtension < Radiant::Extension
   def load_default_settings_regions
     returning OpenStruct.new do |settings|
       settings.index = Radiant::AdminUI::RegionSet.new do |index|
-        index.main.concat %w{top list bottom}
+        index.top.concat %w{}
+        index.main.concat %w{list}
+        index.bottom.concat %w{new_button}
       end
     end
   end

@@ -23,18 +23,20 @@
         text-decoration: none
         &:hover
           background: #efefff
-    
-- render_region :main do |main|
-  - main.top do
-    %h1 Radiant Settings
-  - main.list do
-    %table#settings_index.index
-      %tr
-        %th.key Setting Name
-        %th.value Value
-  
-      - @settings.each do |key, node|
-        = render_node key, node, :reset_depth => true
-    
-  - main.bottom do
-    %p.new= link_to "New Setting", new_admin_setting_url if admin?
+.outset
+  - render_region :top
+  - render_region :main do |main|
+    - main.list do
+      %table#settings_index.index
+        %thead
+          %tr
+            %th.key Radiant::Config Key
+            %th.value Value
+        %tbody
+          - @settings.each do |key, node|
+            = render_node key, node, :reset_depth => true
+#actions
+  - render_region :bottom do |bottom|
+    - bottom.new_button do
+      %ul
+        %li.new= link_to "New Setting", new_admin_setting_url if admin?

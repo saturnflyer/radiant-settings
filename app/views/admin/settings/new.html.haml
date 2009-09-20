@@ -1,3 +1,4 @@
+- body_classes << 'reversed'
 - content_for 'page_css' do
   :sass
     h2.setting-name
@@ -36,8 +37,9 @@
       %label
         Setting Description
         = f.text_area :description, :class => 'textarea'
-    
-    %br/
-    
+        
     %p.buttons
-      = submit_tag 'Create', :class => 'button'
+      = save_model_button(@setting, :label => 'Create Setting')
+      = save_model_and_continue_editing_button(@setting)
+      or
+      = link_to 'Cancel', admin_settings_url
