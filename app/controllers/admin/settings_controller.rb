@@ -1,7 +1,7 @@
 class Admin::SettingsController < ApplicationController
   
   only_allow_access_to :new, :create, :destroy,
-    :when => :admin,
+    :when => (Radiant::Config['roles.settings'].split(',').collect{|s| s.strip.underscore }.map(&:to_sym) || :admin),
     :denied_url => {:action => 'index'},
     :denied_message => "See your administrator if you'd like to create a new setting or delete an existing one."
   
