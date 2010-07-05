@@ -2,7 +2,7 @@
 # require_dependency 'application_controller'
 
 class SettingsExtension < Radiant::Extension
-  version "1.1"
+  version "#{File.read(File.expand_path(File.dirname(__FILE__)) + '/VERSION')}"
   description "Web based administration for Radiant default configuration settings."
   url "http://github.com/Squeegy/radiant-settings"
   
