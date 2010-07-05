@@ -6,12 +6,6 @@ class SettingsExtension < Radiant::Extension
   description "Web based administration for Radiant default configuration settings."
   url "http://github.com/Squeegy/radiant-settings"
   
-  define_routes do |map|
-    map.namespace 'admin' do |admin|
-      admin.resources :settings
-    end
-  end
-  
   def activate
     Radiant::Config.extend ConfigFindAllAsTree
     Radiant::Config.class_eval { include ConfigProtection }
