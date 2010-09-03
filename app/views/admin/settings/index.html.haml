@@ -30,8 +30,8 @@
       %table#settings_index.index
         %thead
           %tr
-            %th.key Radiant::Config Key
-            %th.value Value
+            %th.key= t('settings.setting.key')
+            %th.value= t('settings.setting.value')
         %tbody
           - @settings.each do |key, node|
             = render_node key, node, :reset_depth => true
@@ -39,4 +39,4 @@
   - render_region :bottom do |bottom|
     - bottom.new_button do
       %ul
-        %li.new= link_to "New Setting", new_admin_setting_url if admin?
+        %li.new= link_to t('settings.new_setting'), new_admin_setting_url if admin?
