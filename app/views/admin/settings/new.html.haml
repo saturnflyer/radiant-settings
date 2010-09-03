@@ -20,22 +20,22 @@
       width: 100%
       display: block
 
-%h1= t('settings.pages.new.title')  
+%h1= t('settings_extension.pages.new.title')
 
 - form_for :setting, :url => admin_settings_path do |f|
   .form-area
     %p.title
-      %label= t('settings.pages.new.name')
-        = f.text_field :key, :class => 'textbox'
+      %label= t('settings_extension.pages.new.name')
+      = f.text_field :key, :class => 'textbox'
     %p.title
-      %label= t('settings.pages.new.value')        
-        = f.text_field :value, :class => 'textbox'
+      %label= t('settings_extension.pages.new.value')
+      = f.text_field :value, :class => 'textbox'
     %p.title
-      %label= t('settings.pages.new.description')        
-        = f.text_area :description, :class => 'textarea'
+      %label= t('settings_extension.pages.new.description')
+      = f.text_area :description, :class => 'textarea'
         
     %p.buttons
-      = save_model_button(@setting, :label => t('settings.create_setting'))
+      = save_model_button(@setting, :label => t('settings_extension.pages.new.create_setting'))
       = save_model_and_continue_editing_button(@setting)
-      = t('settings.or')
-      = link_to t('settings.cancel'), admin_settings_url
+      = t('settings_extension.or')
+      = link_to t('settings_extension.cancel'), admin_settings_url

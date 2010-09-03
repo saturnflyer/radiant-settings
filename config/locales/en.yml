@@ -1,7 +1,7 @@
 ---
-en: 
-  settings:
-    tab: Settings
+en:
+  application: Application
+  settings_extension:
     noticies:
       create:
         success: The setting {{setting}} was created
@@ -19,7 +19,7 @@ en:
     pages:
       new:
         title: New Radiant Setting
-        name: Setting Name      
+        name: Setting Name
         value: Setting Value
         description: Setting Description
         create_setting: Create Setting

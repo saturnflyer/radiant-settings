@@ -16,7 +16,7 @@ class Admin::SettingsController < ApplicationController
   def create
     @setting = Radiant::Config.find_or_create_by_key(params[:setting]['key'])
     @setting.update_attributes(params[:setting])
-    flash[:notice] = t('settings.noticies.create.success', :setting => @setting.key)
+    flash[:notice] = t('settings_extension.noticies.create.success', :setting => @setting.key)
 
     redirect_to admin_settings_url
   end
@@ -34,7 +34,7 @@ class Admin::SettingsController < ApplicationController
     @setting = Radiant::Config.find(params[:id])
     @key = @setting.key
     @setting.destroy
-    flash[:notice] = t('settings.noticies.destroy.success', :setting => @key)
+    flash[:notice] = t('settings_extension.noticies.destroy.success', :setting => @key)
     redirect_to admin_settings_url
   end
   

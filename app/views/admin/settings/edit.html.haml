@@ -20,20 +20,20 @@
 - form_for :setting, :url => admin_setting_path(@setting), :html => { :method => :put } do |f|
   .form-area
     %p.title
-      = f.label :value, t('settings.setting.value')
-        - if @setting.protected?
-          = f.password_field :value, :class => 'textbox'
-        - else
-          = f.text_field :value, :class => 'textbox'
+      = f.label :value, t('settings_extension.setting.value')
+      - if @setting.protected?
+        = f.password_field :value, :class => 'textbox'
+      - else
+        = f.text_field :value, :class => 'textbox'
     .description= textilize @setting.description
     
     %p.buttons
       = save_model_button(@setting)
       = save_model_and_continue_editing_button(@setting)
-      = t('settings.or')
-      = link_to t('settings.cancel'), admin_settings_url
+      = t('settings_extension.or')
+      = link_to t('settings_extension.cancel'), admin_settings_url
       
 %p.buttons
   - if admin?
-    = t('settings.delete_warning')     
-    = link_to t('settings.delete_confirm'), admin_setting_path(@setting), :method => :delete if admin?
+    = t('settings_extension.delete_warning')
+    = link_to t('settings_extension.delete_confirm'), admin_setting_path(@setting), :method => :delete if admin?

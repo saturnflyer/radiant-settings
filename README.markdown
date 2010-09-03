@@ -8,6 +8,11 @@ After installation be sure to update your instance of radiant!
     rake radiant:extensions:settings:update
     rake radiant:extensions:settings:migrate
 
+Requirements
+------------
+
+Radiant 0.9.1
+
 Extension Developers
 --------------------
 
