@@ -1,0 +1,24 @@
+---
+ru:
+  application: Приложение
+  settings_extension:
+    noticies:
+      create:
+        success: Опция {{setting}} была создана
+      destroy:
+        success: Опция {{setting}} была удалена
+    setting:
+      value: Значение
+      key: Radiant::Config Key
+    or: или
+    cancel: Отмена
+    delete_warning: Для нормальной работы приложения необходимо наличие некоторых опций. Удаление их может привести к непредвиденным ошибкам.
+    delete_confirm: Я понимаю. Удалить эту опцию безвозвратно.
+    new_setting: Новая опция
+    pages:
+      new:
+        title: Добавление новой опции
+        name: Название
+        value: Значение
+        description: Описание
+        create_setting: Создать Опцию
