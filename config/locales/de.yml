@@ -1,0 +1,24 @@
+---
+de:
+  application: Anwendung
+  settings_extension:
+    noticies:
+      create:
+        success: Die Einstellung {{setting}} wurde erstellt
+      destroy:
+        success: Die Einstellung {{setting}} wurde gelöscht
+    setting:
+      value: Wert der Einstellung
+      key: Radiant::Config Schlüssel
+    or: oder
+    cancel: Abbrechen
+    delete_warning: Das Radiant CMS benötigt manche Einstellungen, um korrekt funktionieren zu können. Das Löschen von Einstellungen kann unbeabsichtigte Folgen haben.
+    delete_confirm: Ich verstehe. Lösche die Einstellung komplett.
+    new_setting: Neue Einstellung
+    pages:
+      new:
+        title: Neue Radiant Einstellung
+        name: Einstellungsname
+        value: Einstellungswert
+        description: Einstellungsbeschreibung
+        create_setting: Einstellung erzeugen
