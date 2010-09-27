@@ -1,9 +1,9 @@
 class Admin::SettingsController < ApplicationController
   
-  only_allow_access_to :new, :create, :destroy,
+  only_allow_access_to :index, :show, :new, :create, :edit, :update, :remove, :destroy,
     :when => (Radiant::Config['roles.settings'].split(',').collect{|s| s.strip.underscore }.map(&:to_sym) || :admin),
     :denied_url => {:action => 'index'},
-    :denied_message => "See your administrator if you'd like to create a new setting or delete an existing one."
+    :denied_message => "You must have administrator privileges to perform this action."
   
   def index
     @settings = Radiant::Config.find_all_as_tree
