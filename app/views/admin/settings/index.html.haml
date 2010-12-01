@@ -4,12 +4,12 @@
       span.label
         color: #666
         font-size: 1.2em
-    
+
       div.nest-padding
         width: 35px
         height: 10px
         float: left
-    
+
       tr.spacer
         td
           background: #EAEAEA
@@ -33,8 +33,9 @@
             %th.key Radiant::Config Key
             %th.value Value
         %tbody
-          - @settings.each do |key, node|
-            = render_node key, node, :reset_depth => true
+          - unless @settings.nil?
+            - @settings.each do |key, node|
+              = render_node key, node, :reset_depth => true
 #actions
   - render_region :bottom do |bottom|
     - bottom.new_button do
