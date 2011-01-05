@@ -3,7 +3,7 @@ module ConfigFindAllAsTree
   def find_all_as_tree
     returning(ActiveSupport::OrderedHash.new) do |result|
       
-      db_key = (ActiveRecord::Base.connection.adapter_name.downcase == 'mysql' ? '`key`' : 'key')
+      db_key = (ActiveRecord::Base.connection.adapter_name.downcase =~ /[mysql|mysql2]/ ? '`key`' : 'key')
       
       # For all settings
       find(:all, :order => db_key).each do |setting|
