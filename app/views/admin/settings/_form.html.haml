@@ -1,0 +1,17 @@
+- form_for :setting, :url => admin_settings_path, :html => {'data-onsubmit_status' => onsubmit_status(@setting)} do |f|
+  .form_area
+    %p.title
+      = f.label :name, t('settings_extension.pages.new.name')
+      = f.text_field :key, :class => 'textbox activate', :maxlength => 100
+    %p.title
+      = f.label :value, t('settings_extension.pages.new.value')
+      = f.text_field :value, :class => 'textbox'
+    %p.title
+      = f.label t('settings_extension.pages.new.description')
+      = f.text_field :description, :class => 'textbox'
+
+    %p.buttons{:style=>"clear: left"}
+      = save_model_button(@setting)
+      -# = save_model_and_continue_editing_button(@setting)  # does not return to edit page
+      = t('or')
+      = link_to t('cancel'), admin_settings_url
