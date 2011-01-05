@@ -1,28 +1,3 @@
-- content_for 'page_css' do
-  :sass
-    table#settings_index
-      span.label
-        color: #666
-        font-size: 1.2em
-
-      div.nest-padding
-        width: 35px
-        height: 10px
-        float: left
-
-      tr.spacer
-        td
-          background: #EAEAEA
-          height: 3px
-          padding: 0
-    p.new
-      a
-        color: #000
-        border: 1px solid #ddf
-        padding: 6px
-        text-decoration: none
-        &:hover
-          background: #efefff
 .outset
   - render_region :top
   - render_region :main do |main|
@@ -30,14 +5,38 @@
       %table#settings_index.index
         %thead
           %tr
-            %th.key= t('settings_extension.setting.key')
+            %th.key{:style => 'width: 250px'}= t('settings_extension.setting.key')
             %th.value= t('settings_extension.setting.value')
         %tbody
           - unless @settings.nil?
             - @settings.each do |key, node|
               = render_node key, node, :reset_depth => true
-#actions
-  - render_region :bottom do |bottom|
-    - bottom.new_button do
+
+- render_region :bottom do |bottom|
+  - bottom.new_button do
+    #actions
+      -# = pagination_for(@settings)
       %ul
-        %li.new= link_to t('settings_extension.new_setting'), new_admin_setting_url if admin?
+        %li= link_to image('plus') + " " + t('settings_extension.new_setting'), new_admin_setting_url
+
+- content_for 'page_css' do
+  :sass
+    table#settings_index
+      div.nest-padding
+        width: 35px
+        height: 10px
+        float: left
+      tr.spacer
+        td
+          background: #EAEAEA
+          height: 3px
+          padding: 0
+      span.title
+        a
+          color: black
+          font-size: 115%
+          font-weight: bold
+          text-decoration: none
+          &:hover
+            color: #0066cc
+            text-decoration: underline
