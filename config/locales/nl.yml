@@ -1,0 +1,25 @@
+---
+nl:
+  application: Applicatie
+  settings_extension:
+    noticies:
+      create:
+        success: Het configuratieveld {{setting}} is aangemaakt
+      destroy:
+        success: Het configuratieveld {{setting}} is verwijderd
+    setting:
+      value: Ingestelde waarde
+      key: Radiant::Config Key
+      value: Waarde
+    or: of
+    cancel: Annuleren
+    delete_warning: De applicatie heeft sommige van deze velden nodig om goed te werken. Configuratie-velden verwijderen kan tot applicatie-fouten leiden.
+    delete_confirm: Ik begrijp dit en weet wat ik doe. Verwijder dit configuratieveld voorgoed.
+    new_setting: Nieuw Configuratieveld
+    pages:
+      new:
+        title: Nieuwe Radiant Instelling
+        name: Naam van het configuratie-veld
+        value: Configuratie-waarde
+        description: Configuratie-veld omschrijving
+        create_setting: Configuratie-veld creëren
