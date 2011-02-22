@@ -40,7 +40,7 @@ Gem::Specification.new do |s|
      "lib/tasks/settings_extension_tasks.rake",
      "public/images/.DS_Store",
      "public/images/admin/.DS_Store",
-     "public/images/admin/setting.png",
+     "public/images/extensions/settings/setting.png",
      "settings_extension.rb",
      "spec/controllers/admin/settings_controller_spec.rb",
      "spec/helpers/admin/settings_helper_spec.rb",
