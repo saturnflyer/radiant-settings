@@ -2,7 +2,7 @@
 nl:
   application: Applicatie
   settings_extension:
-    noticies:
+    notices:
       create:
         success: Het configuratieveld {{setting}} is aangemaakt
       destroy:

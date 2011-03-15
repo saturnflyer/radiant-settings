@@ -2,7 +2,7 @@
 ru:
   application: Приложение
   settings_extension:
-    noticies:
+    notices:
       create:
         success: Опция {{setting}} была создана
       destroy:

@@ -2,7 +2,7 @@
 de:
   application: Anwendung
   settings_extension:
-    noticies:
+    notices:
       create:
         success: Die Einstellung {{setting}} wurde erstellt
       destroy:
