@@ -42,8 +42,9 @@ describe "/admin/settings/index" do
     render 'admin/settings/index'
   end
   
-  it "should have a heading of 'Radiant Settings'" do
-    response.should have_tag('h1', 'Radiant Settings')
+  it "should have column headings of 'Radiant::Config Key' and 'Value'" do
+    response.should have_tag('th', 'Radiant::Config Key')
+    response.should have_tag('th', 'Value')
   end
   
   it "should have a table listing all settings" do
@@ -52,7 +53,7 @@ describe "/admin/settings/index" do
     response.should have_tag('td', 'Parts')
     response.should have_tag('td', 'body, extended')
   end
-  
+
   it "should display password settings as '********'" do
     response.should have_tag('tr') do
       with_tag('td','Password')

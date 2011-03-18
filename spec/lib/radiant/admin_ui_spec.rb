@@ -14,7 +14,7 @@ describe Radiant::AdminUI do
     @admin.settings.index.should_not be_nil
   end
   
-  it "should have 'top, list, bottom' regions in the 'index main' region" do
-    @admin.settings.index.main.should == %w{top list bottom}
+  it "should have 'list' region in the 'index main' region" do
+    @admin.settings.index.main.should == %w{list}
   end
 end

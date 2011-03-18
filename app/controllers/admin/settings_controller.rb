@@ -1,9 +1,9 @@
 class Admin::SettingsController < ApplicationController
   
   only_allow_access_to :index, :show, :new, :create, :edit, :update, :remove, :destroy,
-    :when => (Radiant::Config['roles.settings'].split(',').collect{|s| s.strip.underscore }.map(&:to_sym) || :admin),
-    :denied_url => {:action => 'index'},
-    :denied_message => "You must have administrator privileges to perform this action."
+    :when => (Radiant::Config['roles.settings'].split(',').collect{|s| s.strip.underscore }.map(&:to_sym) rescue :admin || :admin),
+    :denied_url => { :controller => 'admin/pages', :action => 'index' },
+    :denied_message => "You must have admin privileges to manage application settings."
   
   def index
     @settings = Radiant::Config.find_all_as_tree
@@ -37,5 +37,5 @@ class Admin::SettingsController < ApplicationController
     flash[:notice] = t('settings_extension.notices.destroy.success', :setting => @key)
     redirect_to admin_settings_url
   end
-  
+
 end

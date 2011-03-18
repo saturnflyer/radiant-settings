@@ -15,11 +15,11 @@ describe "/admin/settings/:id/edit" do
   end
   
   it "should have a heading of with setting key that is being edited" do
-    response.should have_tag('h2.setting-name', 'defaults.page.parts')
+    response.should have_tag('h1.setting_name', 'Edit defaults.page.parts')
   end
   
   it "should have a description" do
-    response.should have_tag('div.description', 'foo')
+    response.should have_tag('input.textbox', :id => 'setting_description', :value => 'foo')
   end
   
   it "should have a form" do
