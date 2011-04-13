@@ -4,7 +4,7 @@
 class SettingsExtension < Radiant::Extension
   version "#{File.read(File.expand_path(File.dirname(__FILE__)) + '/VERSION')}"
   description "Web based administration for Radiant default configuration settings."
-  url "http://github.com/Squeegy/radiant-settings"
+  url "https://github.com/saturnflyer/radiant-settings"
   
   def activate
     Radiant::Config.extend ConfigFindAllAsTree

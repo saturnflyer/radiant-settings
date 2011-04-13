@@ -5,8 +5,8 @@ begin
     gem.summary = %Q{Settings Extension for Radiant CMS}
     gem.description = %Q{Allows users to edit the details of the config table.}
     gem.email = "jim@saturnflyer.com"
-    gem.homepage = "http://github.com/saturnflyer/radiant-settings-extension"
-    gem.authors = ['Alex Wayne','Jim Gay']
+    gem.homepage = "https://github.com/saturnflyer/radiant-settings"
+    gem.authors = ['Alex Wayne','Jim Gay','Andrew vonderLuft']
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 rescue LoadError
