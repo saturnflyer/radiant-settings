@@ -4,7 +4,7 @@
       .nest-padding
     - if setting
       %span.title
-        = image('setting', :alt => '')
+        = image('../extensions/settings/setting.png', :alt => '')
         = link_to key.humanize, edit_admin_setting_path(setting), :title => setting.key
     - else
       %span.title.label= key.humanize
