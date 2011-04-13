@@ -1,7 +1,18 @@
 namespace :radiant do
   namespace :extensions do
     namespace :settings do
-      
+
+      desc "Install the Settings extension"
+      task :install => [:environment, :migrate, :update]
+
+      desc "Uninstall the Settings extension"
+      task :uninstall => :environment do
+        require 'radiant/extension_migrator'
+        SettingsExtension.migrator.migrate(0)
+        asset_dirs = ["images"]
+        asset_dirs.each { |d| rm_r RAILS_ROOT + "/public/" + d + "/extensions/settings" }
+      end
+
       desc "Runs the migration of the Settings extension"
       task :migrate => :environment do
         require 'radiant/extension_migrator'
