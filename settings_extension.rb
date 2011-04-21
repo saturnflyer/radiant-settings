@@ -9,23 +9,19 @@ class SettingsExtension < Radiant::Extension
   def activate
     Radiant::Config.extend ConfigFindAllAsTree
     Radiant::Config.class_eval { include ConfigProtection }
-    
+
     tab 'Settings' do
       add_item 'Application', '/admin/settings', :after => 'Extensions'
     end
 
     Page.class_eval { include SettingsTags }
-    
     Radiant::AdminUI.class_eval do
       attr_accessor :settings
     end
-    
+
     admin.settings = load_default_settings_regions
   end
-  
-  def deactivate
-  end
-  
+
   def load_default_settings_regions
     returning OpenStruct.new do |settings|
       settings.index = Radiant::AdminUI::RegionSet.new do |index|

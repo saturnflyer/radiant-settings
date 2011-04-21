@@ -7,6 +7,7 @@ begin
     gem.email = "jim@saturnflyer.com"
     gem.homepage = "https://github.com/saturnflyer/radiant-settings"
     gem.authors = ['Alex Wayne','Jim Gay','Andrew vonderLuft']
+    gem.add_dependency 'radiant', ">=0.9.1"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 rescue LoadError
