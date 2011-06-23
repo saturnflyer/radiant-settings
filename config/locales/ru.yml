@@ -4,9 +4,9 @@ ru:
   settings_extension:
     notices:
       create:
-        success: Опция {{setting}} была создана
+        success: Опция %{setting} была создана
       destroy:
-        success: Опция {{setting}} была удалена
+        success: Опция %{setting} была удалена
     setting:
       value: Значение
       key: Radiant::Config Key

@@ -4,9 +4,9 @@ en:
   settings_extension:
     notices:
       create:
-        success: The setting {{setting}} was saved
+        success: The setting %{setting} was saved
       destroy:
-        success: The setting {{setting}} was deleted
+        success: The setting %{setting} was deleted
     setting:
       value: Setting value
       key: Radiant::Config Key

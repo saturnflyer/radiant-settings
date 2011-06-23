@@ -4,9 +4,9 @@ nl:
   settings_extension:
     notices:
       create:
-        success: Het configuratieveld {{setting}} is aangemaakt
+        success: Het configuratieveld %{setting} is aangemaakt
       destroy:
-        success: Het configuratieveld {{setting}} is verwijderd
+        success: Het configuratieveld %{setting} is verwijderd
     setting:
       value: Ingestelde waarde
       key: Radiant::Config Key
